@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import '../styles/Truco.css';
 
 function Truco() {
+  // Estados para manejar los puntos de cada equipo
   const [nosotros, setNosotros] = useState(0);
   const [ellos, setEllos] = useState(0);
 
+  // Función para agregar puntos al equipo seleccionado
   const handleAddPoint = (team) => {
     if (team === 'nosotros' && nosotros < 30) {
       setNosotros(nosotros + 1);
@@ -13,6 +15,7 @@ function Truco() {
     }
   };
 
+  // Función para restar puntos al equipo seleccionado
   const handleSubtractPoint = (team) => {
     if (team === 'nosotros' && nosotros > 0) {
       setNosotros(nosotros - 1);
@@ -21,6 +24,7 @@ function Truco() {
     }
   };
 
+  // Función para convertir puntos en cajas visuales
   function convertPointsToBoxes(points) {
     const fullBoxes = Math.floor(points / 5);
     const remainingPoints = points % 5;
@@ -44,6 +48,7 @@ function Truco() {
     return boxes;
   }
 
+  // Renderizado del componente
   return (
     <div id='trucoBoard'>
       <div className='team nosotros'>
